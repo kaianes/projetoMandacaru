@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Codigos/principal.gd" type="Script" id=1]
+[ext_resource path="res://Imagens/seta.png" type="Texture" id=2]
 
 [node name="Interface" type="Node2D"]
 script = ExtResource( 1 )
@@ -13,32 +14,28 @@ margin_bottom = 1060.0
 color = Color( 0, 0, 0, 0.196078 )
 
 [node name="botaoEsquerda" type="Button" parent="."]
-margin_left = 80.0
-margin_top = 873.0
-margin_right = 220.0
-margin_bottom = 1020.0
-text = "Esquerda"
+margin_left = 90.0
+margin_top = 869.0
+margin_right = 230.0
+margin_bottom = 1016.0
 
 [node name="botaoDireita" type="Button" parent="."]
 margin_left = 280.0
 margin_top = 873.0
 margin_right = 420.0
 margin_bottom = 1020.0
-text = "Direita"
 
 [node name="botaoCima" type="Button" parent="."]
-margin_left = 680.0
-margin_top = 873.0
-margin_right = 820.0
-margin_bottom = 1020.0
-text = "Cima"
+margin_left = 664.0
+margin_top = 871.0
+margin_right = 822.0
+margin_bottom = 1024.0
 
 [node name="botaoBaixo" type="Button" parent="."]
-margin_left = 480.0
+margin_left = 462.0
 margin_top = 873.0
 margin_right = 620.0
-margin_bottom = 1020.0
-text = "Baixo"
+margin_bottom = 1028.0
 
 [node name="botaoIniciar" type="Button" parent="."]
 margin_left = 1599.0
@@ -47,8 +44,39 @@ margin_right = 1799.0
 margin_bottom = 997.0
 text = "Iniciar"
 
+[node name="Hud" type="CanvasLayer" parent="."]
+
+[node name="gamepad" type="Node2D" parent="Hud"]
+
+[node name="touchEsquerda" type="TouchScreenButton" parent="Hud/gamepad"]
+position = Vector2( 92, 1018 )
+rotation = -1.5708
+scale = Vector2( 0.405556, 0.541667 )
+normal = ExtResource( 2 )
+
+[node name="touchDireita" type="TouchScreenButton" parent="Hud/gamepad"]
+position = Vector2( 414, 874 )
+rotation = 1.5708
+scale = Vector2( 0.388889, 0.525 )
+normal = ExtResource( 2 )
+
+[node name="touchCima" type="TouchScreenButton" parent="Hud/gamepad"]
+position = Vector2( 666, 882 )
+scale = Vector2( 0.427778, 0.55 )
+normal = ExtResource( 2 )
+
+[node name="touchBaixo" type="TouchScreenButton" parent="Hud/gamepad"]
+position = Vector2( 616, 1022 )
+rotation = -3.14159
+scale = Vector2( 0.422222, 0.541667 )
+normal = ExtResource( 2 )
+
 [connection signal="pressed" from="botaoEsquerda" to="." method="_on_botaoEsquerda_pressed"]
 [connection signal="pressed" from="botaoDireita" to="." method="_on_botaoDireita_pressed"]
 [connection signal="pressed" from="botaoCima" to="." method="_on_botaoCima_pressed"]
 [connection signal="pressed" from="botaoBaixo" to="." method="_on_botaoBaixo_pressed"]
 [connection signal="pressed" from="botaoIniciar" to="." method="_on_Button3_pressed"]
+[connection signal="pressed" from="Hud/gamepad/touchEsquerda" to="." method="_on_touchEsquerda_pressed"]
+[connection signal="pressed" from="Hud/gamepad/touchDireita" to="." method="_on_touchDireita_pressed"]
+[connection signal="pressed" from="Hud/gamepad/touchCima" to="." method="_on_touchCima_pressed"]
+[connection signal="pressed" from="Hud/gamepad/touchBaixo" to="." method="_on_touchBaixo_pressed"]

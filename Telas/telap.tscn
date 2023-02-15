@@ -138,6 +138,7 @@ position = Vector2( 106, 128 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 4 )
 animation = "person"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
